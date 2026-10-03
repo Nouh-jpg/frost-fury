@@ -1,23 +1,39 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/sprites/title_bg.png" id="2_bg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
-bg_color = Color(0.08, 0.12, 0.2, 0.85)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0.8, 1, 0.9)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-content_margin_left = 12.0
-content_margin_top = 4.0
-content_margin_right = 12.0
-content_margin_bottom = 4.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.08, 0.14, 0.24, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.85, 1, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.12, 0.25, 0.45, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.05, 0.07, 0.12, 0.96)
@@ -42,6 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("1_script")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -51,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_bg")
 expand_mode = 1
 stretch_mode = 6
@@ -62,43 +80,55 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -90.0
-offset_right = 120.0
-offset_bottom = -12.0
+offset_left = -160.0
+offset_top = -88.0
+offset_right = 160.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 6
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="PressStartPrompt" type="Label" parent="VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_colors/font_color = Color(1, 0.92, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 12
-text = "PRESS START OR ENTER TO PLAY"
+theme_override_font_sizes/font_size = 11
+text = "PRESS ANY KEY OR TOUCH SCREEN TO START"
 horizontal_alignment = 1
 
 [node name="ButtonContainer" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="StartButton" type="Button" parent="VBox/ButtonContainer"]
+custom_minimum_size = Vector2(130, 28)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+focus_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.3, 1)
 theme_override_font_sizes/font_size = 11
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
-text = "START GAME"
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "⚔️ START GAME"
 
 [node name="HowToPlayButton" type="Button" parent="VBox/ButtonContainer"]
+custom_minimum_size = Vector2(120, 28)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.85, 1, 1)
+focus_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.3, 1)
 theme_override_font_sizes/font_size = 11
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
-text = "HOW TO PLAY"
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "📖 HOW TO PLAY"
 
 [node name="HelpPanel" type="PanelContainer" parent="."]
 visible = false
@@ -108,21 +138,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -105.0
-offset_right = 190.0
-offset_bottom = 105.0
+offset_left = -200.0
+offset_top = -110.0
+offset_right = 200.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VBox" type="VBoxContainer" parent="HelpPanel"]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 6
 
 [node name="Title" type="Label" parent="HelpPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.9, 1, 1)
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
 theme_override_font_sizes/font_size = 12
 text = "COMBAT & SNOW BROS BOWLING GUIDE"
 horizontal_alignment = 1
@@ -133,18 +163,20 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9, 0.95, 1, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
-text = "[color=#ffd166]Melee Combos:[/color] Tap Attack for 3-hit combo (Jab -> Cross -> Ice Geyser Uppercut).
+text = "[color=#ffd166]Melee Combos:[/color] Tap Attack for 3-hit combo (Jab -> Hook -> Ice Geyser Uppercut).
 [color=#ffd166]Blitz Rush:[/color] Hold Blitz / Shift + Attack to lunge forward with ice fists.
 [color=#00f5ff]Snow Bros Mechanic:[/color] Punching enemies encases them in a [b]Frost Sphere[/b]!
 Walk up to a Frost Sphere and press [b]Attack to Kick it[/b]! The sphere rolls, bounces off walls, and bowls down entire waves of enemies for massive multi-kill points and loot drops!
 [color=#ffd166]Controls:[/color]
-• PC Keyboard: [b]A/D[/b] = Move, [b]J[/b] = Attack/Kick, [b]K/Space[/b] = Jump, [b]L[/b] = Blitz, [b]I[/b] = Special
-• Gamepad / Steam Deck: [b]D-Pad[/b] = Move, [b]X[/b] = Attack, [b]A[/b] = Jump, [b]RB/Y[/b] = Blitz
+• PC Keyboard: [b]A/D/Arrows[/b] = Move, [b]J/Space/Enter[/b] = Attack/Kick, [b]K[/b] = Jump, [b]L/Shift[/b] = Blitz, [b]I[/b] = Special
+• Gamepad / Steam Deck: [b]D-Pad[/b] = Move, [b]X/B[/b] = Attack, [b]A[/b] = Jump, [b]RB/Y[/b] = Blitz
 • Android: Virtual Touch D-pad & Arcade Buttons [A] [B] [X] [Y]"
 
 [node name="CloseHelpButton" type="Button" parent="HelpPanel/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
 text = "BACK TO TITLE"

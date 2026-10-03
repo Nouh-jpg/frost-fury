@@ -48,15 +48,15 @@ func _setup_inputs() -> void:
 	_register_key_action("move_down", [KEY_DOWN, KEY_S], [JOY_BUTTON_DPAD_DOWN], JOY_AXIS_LEFT_Y, 1.0)
 	
 	# Attack (Jab / Combo / Kick)
-	_register_key_action("attack", [KEY_J, KEY_Z, KEY_F], [JOY_BUTTON_X, JOY_BUTTON_B])
+	_register_key_action("attack", [KEY_J, KEY_Z, KEY_F, KEY_ENTER, KEY_KP_ENTER, KEY_SPACE], [JOY_BUTTON_X, JOY_BUTTON_B, JOY_BUTTON_A])
 	# Jump
-	_register_key_action("jump", [KEY_K, KEY_SPACE, KEY_X], [JOY_BUTTON_A])
+	_register_key_action("jump", [KEY_K, KEY_SPACE, KEY_X, KEY_W, KEY_UP], [JOY_BUTTON_A])
 	# Blitz (Rush Strike)
 	_register_key_action("blitz", [KEY_L, KEY_SHIFT, KEY_C], [JOY_BUTTON_RIGHT_SHOULDER, JOY_BUTTON_Y])
 	# Special (Screen Blast)
-	_register_key_action("special", [KEY_I, KEY_V], [JOY_BUTTON_LEFT_SHOULDER])
+	_register_key_action("special", [KEY_I, KEY_V, KEY_Q], [JOY_BUTTON_LEFT_SHOULDER])
 	# Pause / Menu
-	_register_key_action("pause", [KEY_ESCAPE, KEY_ENTER], [JOY_BUTTON_START])
+	_register_key_action("pause", [KEY_ESCAPE, KEY_ENTER, KEY_KP_ENTER, KEY_P], [JOY_BUTTON_START, JOY_BUTTON_BACK])
 
 func _register_key_action(action_name: String, keys: Array, buttons: Array = [], axis: JoyAxis = -1, axis_val: float = 0.0) -> void:
 	if not InputMap.has_action(action_name):
@@ -64,6 +64,7 @@ func _register_key_action(action_name: String, keys: Array, buttons: Array = [],
 		
 	for key in keys:
 		var ev := InputEventKey.new()
+		ev.keycode = key
 		ev.physical_keycode = key
 		InputMap.action_add_event(action_name, ev)
 		

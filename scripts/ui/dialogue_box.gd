@@ -34,7 +34,25 @@ func _input(event: InputEvent) -> void:
 	if not visible:
 		return
 		
-	if event.is_action_just_pressed("attack") or event.is_action_just_pressed("jump") or event.is_action_just_pressed("pause"):
+	if event.is_action_just_pressed("pause") or (event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE):
+		_close_dialogue()
+		get_viewport().set_input_as_handled()
+		return
+		
+	var advance: bool = false
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		advance = true
+	elif event is InputEventScreenTouch and event.pressed:
+		advance = true
+	elif event is InputEventKey and event.pressed and not event.echo:
+		advance = true
+	elif event is InputEventJoypadButton and event.pressed:
+		advance = true
+	elif event.is_action_just_pressed("attack") or event.is_action_just_pressed("jump") or event.is_action_just_pressed("pause"):
+		advance = true
+		
+	if advance:
+		get_viewport().set_input_as_handled()
 		if is_typing:
 			# Skip to end of line
 			text_label.visible_characters = -1

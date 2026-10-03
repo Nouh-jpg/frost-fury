@@ -1,12 +1,14 @@
 # ❄️ Frost Fury: Chronicles of the Frostbound
+### Developed by Noah's Ark
 
-> **A 16-bit Sega Genesis-era Arcade Fantasy Hybrid Brawler**  
+> **A 16-bit Retro Arcade Fantasy Hybrid Brawler**  
 > Blending the meaty melee combos of *Streets of Rage 3* with the chaotic bowling ball mechanics of *Snow Bros*.
 
-[![Godot 4.7](https://img.shields.io/badge/Engine-Godot%204.7+-478CBF?logo=godotengine&logoColor=white)](https://godotengine.org)
+[![Godot 4.7](https://img.shields.io/badge/Engine-Godot%204.7-478CBF?logo=godotengine&logoColor=white)](https://godotengine.org)
+[![Publisher - Noah's Ark](https://img.shields.io/badge/Publisher-Noah's%20Ark-FFD166)](#)
 [![Platform - Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com)
 [![Platform - Steam / PC](https://img.shields.io/badge/Platform-Steam%20%2F%20PC-171A21?logo=steam&logoColor=white)](https://store.steampowered.com)
-[![Style - 16-Bit Pixel Art](https://img.shields.io/badge/Art-16--Bit%20Sega%20Genesis-FF6B6B)](#)
+[![Style - 16-Bit Pixel Art](https://img.shields.io/badge/Art-16--Bit%20Retro%20Arcade-00F5FF)](#)
 
 ---
 

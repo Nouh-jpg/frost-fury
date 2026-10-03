@@ -1,16 +1,25 @@
 ; Engine configuration file.
 ; It's best edited using the editor UI and not directly,
-; but it can also be edited by hand.
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="Frost Fury: Chronicles of the Frostbound"
-config/description="A 16-bit Sega Genesis-style arcade fantasy hybrid brawler blending Streets of Rage 3 melee combos with Snow Bros bowling mechanics for Android and Steam."
+config/description="A 16-bit retro arcade fantasy hybrid brawler by Noah's Ark."
 config/version="1.0.0"
+config/publisher="Noah's Ark"
 run/main_scene="res://scenes/menu.tscn"
-config/features=PackedStringArray("4.3", "4.4", "4.5", "4.6", "4.7", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]

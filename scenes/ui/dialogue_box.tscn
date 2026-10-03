@@ -93,5 +93,5 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
 theme_override_font_sizes/font_size = 8
-text = "[ PRESS ATTACK / ENTER TO CONTINUE ]"
+text = "[ TAP, CLICK, OR PRESS ANY KEY TO ADVANCE ]"
 horizontal_alignment = 2
