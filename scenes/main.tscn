@@ -1,0 +1,168 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/level_manager.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/touch_controls.tscn" id="4_touch"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue_box.tscn" id="5_dialogue"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/citadel_tiles.png" id="6_tiles"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(480, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(16, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(120, 12)
+
+[node name="MainLevel" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 135)
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.08, 0.1, 0.16, 1)
+
+[node name="DungeonWallDetails" type="Node2D" parent="."]
+
+[node name="Arch1" type="ColorRect" parent="DungeonWallDetails"]
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 140.0
+offset_bottom = 180.0
+color = Color(0.12, 0.15, 0.22, 1)
+
+[node name="Arch2" type="ColorRect" parent="DungeonWallDetails"]
+offset_left = 340.0
+offset_top = 40.0
+offset_right = 420.0
+offset_bottom = 180.0
+color = Color(0.12, 0.15, 0.22, 1)
+
+[node name="MoonGlow" type="ColorRect" parent="DungeonWallDetails"]
+offset_left = 220.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 50.0
+color = Color(0.3, 0.6, 0.8, 0.15)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Environment"]
+position = Vector2(240, 258)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="Visual" type="ColorRect" parent="Environment/Ground"]
+offset_left = -240.0
+offset_top = -12.0
+offset_right = 240.0
+offset_bottom = 12.0
+color = Color(0.2, 0.24, 0.32, 1)
+
+[node name="SnowCap" type="ColorRect" parent="Environment/Ground"]
+offset_left = -240.0
+offset_top = -12.0
+offset_right = 240.0
+offset_bottom = -9.0
+color = Color(0.85, 0.95, 1, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="Environment"]
+position = Vector2(-8, 135)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/LeftWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="RightWall" type="StaticBody2D" parent="Environment"]
+position = Vector2(488, 135)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/RightWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="PlatformLeft" type="StaticBody2D" parent="Environment"]
+position = Vector2(90, 175)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/PlatformLeft"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Visual" type="ColorRect" parent="Environment/PlatformLeft"]
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(0.18, 0.22, 0.3, 1)
+
+[node name="IceCap" type="ColorRect" parent="Environment/PlatformLeft"]
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = -4.0
+color = Color(0, 0.8, 1, 1)
+
+[node name="PlatformRight" type="StaticBody2D" parent="Environment"]
+position = Vector2(390, 175)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/PlatformRight"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Visual" type="ColorRect" parent="Environment/PlatformRight"]
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(0.18, 0.22, 0.3, 1)
+
+[node name="IceCap" type="ColorRect" parent="Environment/PlatformRight"]
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = -4.0
+color = Color(0, 0.8, 1, 1)
+
+[node name="PlatformCenter" type="StaticBody2D" parent="Environment"]
+position = Vector2(240, 105)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/PlatformCenter"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Visual" type="ColorRect" parent="Environment/PlatformCenter"]
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+color = Color(0.18, 0.22, 0.3, 1)
+
+[node name="IceCap" type="ColorRect" parent="Environment/PlatformCenter"]
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = -4.0
+color = Color(0, 0.8, 1, 1)
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(80, 230)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="TouchControls" parent="." instance=ExtResource("4_touch")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("5_dialogue")]

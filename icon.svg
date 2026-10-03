@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="frostGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5ff"/>
+      <stop offset="50%" stop-color="#0077b6"/>
+      <stop offset="100%" stop-color="#03045e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#0d1117" stroke="#00b4d8" stroke-width="4"/>
+  <!-- Icy Diamond Crest -->
+  <polygon points="64,16 104,44 64,112 24,44" fill="url(#frostGrad)" stroke="#caf0f8" stroke-width="3" filter="url(#glow)"/>
+  <!-- Fist / Star Rune -->
+  <path d="M64,32 L74,54 L98,54 L78,68 L86,92 L64,76 L42,92 L50,68 L30,54 L54,54 Z" fill="#ffffff" opacity="0.95"/>
+  <!-- Cold Flare -->
+  <circle cx="64" cy="62" r="6" fill="#00f5ff"/>
+</svg>

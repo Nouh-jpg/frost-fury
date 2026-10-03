@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/touch_controls.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/touch/dpad.png" id="2_dpad"]
+[ext_resource type="Texture2D" path="res://assets/ui/touch/btn_attack.png" id="3_attack"]
+[ext_resource type="Texture2D" path="res://assets/ui/touch/btn_jump.png" id="4_jump"]
+[ext_resource type="Texture2D" path="res://assets/ui/touch/btn_blitz.png" id="5_blitz"]
+[ext_resource type="Texture2D" path="res://assets/ui/touch/btn_special.png" id="6_special"]
+
+[node name="TouchControls" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_script")
+
+[node name="LeftPad" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -140.0
+offset_right = 144.0
+offset_bottom = -12.0
+grow_vertical = 0
+
+[node name="DpadArea" type="TextureRect" parent="LeftPad"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dpad")
+expand_mode = 1
+
+[node name="RightPad" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -140.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BtnAttack" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(16, 52)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_attack")
+action = "attack"
+
+[node name="BtnJump" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(76, 68)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_jump")
+action = "jump"
+
+[node name="BtnBlitz" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(76, 12)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("5_blitz")
+action = "blitz"
+
+[node name="BtnSpecial" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(20, -4)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("6_special")
+action = "special"
